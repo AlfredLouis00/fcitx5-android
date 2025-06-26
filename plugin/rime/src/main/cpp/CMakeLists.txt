@@ -54,6 +54,10 @@ install(FILES
         "rime-luna-pinyin/pinyin.yaml"
         "rime-stroke/stroke.dict.yaml"
         "rime-stroke/stroke.schema.yaml"
+        "rime-Sautungva/sautungva.dict.yaml"
+        "rime-Sautungva/sautungva_beta.schema.yaml"
+        "rime-Sautungva/sautungva_phinin.dict.yaml"
+        "rime-Sautungva/sautungva_phinin.schema.yaml"
         DESTINATION "${FCITX_INSTALL_DATADIR}/rime-data"
         COMPONENT prebuilt-assets
         )
