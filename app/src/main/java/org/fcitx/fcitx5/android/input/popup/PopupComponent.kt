@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: LGPL-2.1-or-later
- * SPDX-FileCopyrightText: Copyright 2021-2023 Fcitx5 for Android Contributors
+ * SPDX-FileCopyrightText: Copyright 2021-2025 Fcitx5 for Android Contributors
  */
 package org.fcitx.fcitx5.android.input.popup
 
@@ -136,7 +136,10 @@ class PopupComponent :
     }
 
     private fun showKeyboard(viewId: Int, keyboard: KeyDef.Popup.Keyboard, bounds: Rect) {
-        val keys = Companion.popupPresetJson?.get(keyboard.label) ?: PopupPreset[keyboard.label] ?: return
+        val keys = popupPresetJson?.get(keyboard.label)
+            ?: PopupPreset[keyboard.label]
+            ?: EmojiModifier.produceSkinTones(keyboard.label)
+            ?: return
         // clear popup preview text         OR create empty popup preview
         showingEntryUi[viewId]?.setText("") ?: showPopup(viewId, "", bounds)
         reallyShowKeyboard(viewId, keys, bounds)
